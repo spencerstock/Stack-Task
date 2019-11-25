@@ -30,16 +30,16 @@ class MainFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        // TODO: Use the ViewModel
 
         viewModel.getAllTasks().observe(this, Observer<List<Task>> {
             taskList = it
-            message.text = it[it.lastIndex].name
+            if (it.isNotEmpty()) message.text = it[it.lastIndex].name
+            else message.text = "Add your first Task"
         })
 
 
         remove.setOnClickListener {
-            viewModel.removeTask(taskList.get(taskList.lastIndex))
+            if (taskList.isNotEmpty()) viewModel.removeTask(taskList.get(taskList.lastIndex))
         }
 
         add.setOnClickListener {

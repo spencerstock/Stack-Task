@@ -39,7 +39,7 @@
 
     <EditText
         android:id="@+id/task"
-        android:text="task"
+        android:hint="Task Name"
         android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
