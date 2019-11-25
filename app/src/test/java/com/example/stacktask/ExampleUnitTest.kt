@@ -25,25 +25,28 @@ class ExampleUnitTest {
 
     @Test
     fun task_removed() {
-        MainViewModel.addTask("Clean Kitchen")
-        MainViewModel.addTask("Cook Macaroni")
-        MainViewModel.removeTopTask()
-        assertEquals (MainViewModel.getTopTask(), "Clean Kitchen")
+        val mainViewModel = MainViewModel()
+        mainViewModel.addTask("Clean Kitchen")
+        mainViewModel.addTask("Cook Macaroni")
+        mainViewModel.removeTopTask()
+        assertEquals (mainViewModel.getTopTask(), "Clean Kitchen")
     }
 
     @Test
     fun task_movedToBottom() {
-        MainViewModel.addTask("Clean Kitchen")
-        MainViewModel.addTask("Cook Macaroni")
-        MainViewModel.moveTopTaskToBottom()
-        assertEquals (MainViewModel.getTopTask(), "Clean Kitchen")
-        MainViewModel.moveTopTaskToBottom()
-        assertEquals (MainViewModel.getTopTask(), "Cook Macaroni")
+        val mainViewModel = MainViewModel()
+        mainViewModel.addTask("Clean Kitchen")
+        mainViewModel.addTask("Cook Macaroni")
+        mainViewModel.moveTopTaskToBottom()
+        assertEquals (mainViewModel.getTopTask(), "Clean Kitchen")
+        mainViewModel.moveTopTaskToBottom()
+        assertEquals (mainViewModel.getTopTask(), "Cook Macaroni")
     }
 
     @Test
     fun task_reminderSet() {
-        MainViewModel.setReminder()
+        //val mainViewModel = MainViewModel()
+        //mainViewModel.setReminder()
         //TODO: Implement test
     }
 }
