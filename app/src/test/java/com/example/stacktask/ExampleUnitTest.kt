@@ -1,5 +1,6 @@
 package com.example.stacktask
 
+import com.example.stacktask.models.Task
 import com.example.stacktask.ui.main.MainViewModel
 import org.junit.Test
 
@@ -48,5 +49,16 @@ class ExampleUnitTest {
         //val mainViewModel = MainViewModel()
         //mainViewModel.setReminder()
         //TODO: Implement test
+    }
+
+    @Test
+    fun task_getHistory() {
+        //should return a history of everything that's been pushed and popped and
+        // moved to bottom, in order
+    }
+    @Test
+    fun create_task() {
+        val temp = Task("New Task")
+        assertEquals("New Task", temp.name)
     }
 }
