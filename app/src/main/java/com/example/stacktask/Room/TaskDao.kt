@@ -1,10 +1,7 @@
 package com.example.stacktask.Room
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.example.stacktask.models.Task
 
 @Dao
@@ -16,4 +13,10 @@ interface TaskDao {
 
     @Query("SELECT * FROM tasks")
     fun getTaskStack(): LiveData<List<Task>>
+
+    @Delete
+    fun removeTopTask(task : Task) //TODO: Figure out how to implement something like this
+
+    @Delete
+    fun removeTask(task: Task)
 }

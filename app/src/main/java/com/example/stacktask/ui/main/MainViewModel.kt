@@ -1,33 +1,38 @@
 package com.example.stacktask.ui.main
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import com.example.stacktask.Room.TaskDatabase
 import com.example.stacktask.models.Task
-import java.util.*
 
-class MainViewModel : ViewModel() {
-    private val stackOfTasks = Stack<Task>();
+class MainViewModel(application: Application) : AndroidViewModel(application) {
+    private val taskDatabase = TaskDatabase.getAppDatabase(application)
+
+    private var taskStack = taskDatabase.taskdao().getTaskStack()
+
 
     fun addTask(s: String) {
-        stackOfTasks.push(Task(s))
+        taskDatabase.taskdao().insert(Task(s))
     }
 
     fun getTopTask(): String {
-        return stackOfTasks.peek().name
+        return taskStack.value?.get(taskStack.value!!.lastIndex)!!.name
     }
 
     fun removeTopTask() {
-        stackOfTasks.pop()
+        taskDatabase.taskdao().removeTopTask(taskStack.value!![taskStack.value!!.lastIndex-1])
+    }
+
+    fun getAllTasks(): LiveData<List<Task>> {
+        return taskDatabase.taskdao().getTaskStack()
+    }
+
+    fun removeTask(task : Task) {
+        taskDatabase.taskdao().removeTopTask(task)
     }
 
     fun moveTopTaskToBottom() {
-        val tempStack = Stack<Task>()
-        val topTask = stackOfTasks.pop()
-        while(!stackOfTasks.empty()) {
-            tempStack.push(stackOfTasks.pop())
-        }
-        stackOfTasks.push(topTask)
-        while (!tempStack.empty()) {
-            stackOfTasks.push(tempStack.pop())
-        }
+       //TODO: Implement later
     }
 }
