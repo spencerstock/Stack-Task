@@ -4,9 +4,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stacktask.R
 import com.example.stacktask.models.Task
@@ -19,7 +16,7 @@ class TaskPagerAdapter(val tasks : List<Task>) : RecyclerView.Adapter<TaskPagerA
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.task_fragment, parent, false)
+                    .inflate(R.layout.view_pager_element, parent, false)
         return ViewHolder(v)
     }
 
@@ -28,7 +25,7 @@ class TaskPagerAdapter(val tasks : List<Task>) : RecyclerView.Adapter<TaskPagerA
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.text.text = tasks.get(position).name
+        holder.text.text = tasks.get(tasks.size-position-1).name
 
     }
 

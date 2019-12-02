@@ -38,18 +38,14 @@ class MainFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
 
 
-
-
+        //TODO: Refactor initialization out of observer
         viewModel.getAllTasks().observe(this, Observer<List<Task>> {
             taskList = it
             viewPager = view_pager
-            if (taskPagerAdapter == null) taskPagerAdapter = TaskPagerAdapter(taskList)
-            if (viewPager.adapter == null) viewPager.adapter = taskPagerAdapter
+            taskPagerAdapter = TaskPagerAdapter(taskList)
+            viewPager.adapter = taskPagerAdapter
             taskPagerAdapter!!.notifyDataSetChanged()
         })
-
-
-
 
         remove.setOnClickListener {
             if (taskList.isNotEmpty()) viewModel.removeTask(taskList.get(taskList.lastIndex))
