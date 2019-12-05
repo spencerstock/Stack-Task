@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stacktask.R
 import com.example.stacktask.models.Task
@@ -27,11 +28,16 @@ class TaskPagerAdapter(val tasks : List<Task>) : RecyclerView.Adapter<TaskPagerA
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.text.text = tasks.get(tasks.size-position-1).name
 
+        holder.cardView.setOnClickListener {
+
+        }
+
     }
 
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val text: TextView = itemView.findViewById(R.id.tf_textview)
+        val cardView: CardView = itemView.findViewById(R.id.card_view_parent)
 
     }
 }
