@@ -12,7 +12,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:cardCornerRadius="5dp"
         android:layout_width="match_parent"
-        android:backgroundTint="@color/colorPrimary"
         android:layout_height="match_parent">
 
 

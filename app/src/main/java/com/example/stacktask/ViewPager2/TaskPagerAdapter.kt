@@ -1,5 +1,6 @@
 package com.example.stacktask.ViewPager2
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,8 +9,11 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stacktask.R
 import com.example.stacktask.models.Task
+import com.example.stacktask.ViewPager2.CardColor
 
 class TaskPagerAdapter(val tasks : List<Task>) : RecyclerView.Adapter<TaskPagerAdapter.ViewHolder>() {
+
+    var colorPicker = 1
 
 
 
@@ -27,6 +31,9 @@ class TaskPagerAdapter(val tasks : List<Task>) : RecyclerView.Adapter<TaskPagerA
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.text.text = tasks.get(tasks.size-position-1).name
+
+        holder.cardView.setCardBackgroundColor(CardColor.values()[colorPicker].rgb)
+        ++colorPicker
 
         holder.cardView.setOnClickListener {
 
