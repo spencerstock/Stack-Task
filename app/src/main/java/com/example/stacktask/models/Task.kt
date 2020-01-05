@@ -11,5 +11,6 @@ class Task (val name: String)
 {
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null
-    var color: Int = CardColor.values()[Random.nextInt(0,CardColor.values().size)].rgb
+    var color: Int = CardColor.GREEN.rgb
+    //var color: Int = CardColor.values()[Random.nextInt(0,CardColor.values().size)].rgb
 }

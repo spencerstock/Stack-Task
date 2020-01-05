@@ -4,7 +4,7 @@ import com.example.stacktask.R
 
 enum class CardColor(val rgb: Int) {
 
-    GREEN(R.color.cardColor1),
+    GREEN(0x70E52A),
     YELLOW(R.color.cardColor2),
     RED(R.color.cardColor3),
     PURPLE(R.color.cardColor5),
