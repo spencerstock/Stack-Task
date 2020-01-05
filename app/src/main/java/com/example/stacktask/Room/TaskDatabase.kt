@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.example.stacktask.models.Task
 
 
-@Database(entities = [Task::class], version = 1)
+@Database(entities = [Task::class], version = 2)
 abstract class TaskDatabase : RoomDatabase() {
 
     abstract fun taskdao(): TaskDao
