@@ -32,9 +32,13 @@ class TaskPagerAdapter(val tasks : List<Task>) : RecyclerView.Adapter<TaskPagerA
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.text.text = tasks.get(tasks.size-position-1).name
-        val color: Int = ContextCompat.getColor(holder.cardView.context, tasks[position].color)
+        var color: Int = ContextCompat.getColor(holder.cardView.context, tasks[position].color)
         holder.cardView.setCardBackgroundColor(color)
 
+        holder.cardView.setOnClickListener {
+            color += 500
+            it.setBackgroundColor(color)
+        }
 
 
     }
