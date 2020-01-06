@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stacktask.R
 import com.example.stacktask.models.Task
@@ -31,12 +32,10 @@ class TaskPagerAdapter(val tasks : List<Task>) : RecyclerView.Adapter<TaskPagerA
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.text.text = tasks.get(tasks.size-position-1).name
+        val color: Int = ContextCompat.getColor(holder.cardView.context, tasks[position].color)
+        holder.cardView.setCardBackgroundColor(color)
 
-        holder.cardView.setCardBackgroundColor(tasks[position].color)
 
-        holder.cardView.setOnClickListener {
-
-        }
 
     }
 
