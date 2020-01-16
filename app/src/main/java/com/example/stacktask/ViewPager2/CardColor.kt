@@ -2,16 +2,16 @@ package com.example.stacktask.ViewPager2
 
 import com.example.stacktask.R
 
-enum class CardColor(val rgb: Int) {
+enum class CardColor(val rgb: String) {
 
-    GREEN(0x70E52A),
-    YELLOW(R.color.cardColor2),
-    RED(R.color.cardColor3),
-    PURPLE(R.color.cardColor5),
-    LT_PURPLE(R.color.cardColor4),
-    LY_YELLOW(R.color.cardColor6),
-    LT_GREEN(R.color.cardColor7),
-    LT_RED(R.color.cardColor8),
+    GREEN("#70E52A"),
+    YELLOW("#FFDC2F"),
+    RED("#EE2C59"),
+    PURPLE("#5734BD"),
+    LT_PURPLE("#977CE5"),
+    LT_YELLOW("#FFE97C"),
+    LT_GREEN("#A5F577"),
+    LT_RED("#F87896"),
 
 
 }
